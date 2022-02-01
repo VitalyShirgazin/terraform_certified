@@ -7,25 +7,25 @@
 #----------------------------------------------------------
 
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 }
-
 resource "aws_instance" "my_ubuntu" {
-  ami           = "ami-06e54d05255faf8f6" # This is Comments
-  instance_type = "t3.micro"              // This is also Comments
-  key_name      = "denis-key-oregon"
-
+  ami           = "ami-04505e74c0741db8d" # This is Comments
+  instance_type = "t2.micro"              // This is also Comments
+  key_name      = "terraform"
+  vpc_security_group_ids = ["sg-0ededf0e0c6275d0a"]
   tags = {
     Name    = "My-UbuntuLinux-Server"
     Owner   = "Denis Astahov"
-    project = "Phoenix"
+    project = "Kukish"
   }
 }
 
 resource "aws_instance" "my_amazon" {
-  ami           = "ami-0528a5175983e7f28" // This is Comments
-  instance_type = "t3.small"              # This is also Comments
-
+  ami           = "ami-083602cee93914c0c" // This is Comments
+  instance_type = "t2.micro"              # This is also Comments
+  key_name      = "terraform"
+  vpc_security_group_ids = ["sg-0ededf0e0c6275d0a"]
   tags = {
     Name  = "My-AmazonLinux-Server"
     Owner = "Denis Astahov"
